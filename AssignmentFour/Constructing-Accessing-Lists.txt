@@ -1,0 +1,30 @@
+
+
+Array instance:
+ 
+MyLinkedList[] list = new MyLinkedList[26]; // list contains 26 null references, there are no MyLinkedLists in this array yet.
+
+Instantiate 26 MyLinkedLists:
+
+for(int i = 0 ; i< list.length; i++)
+   list[i] = new MyLinkedList<String>(); // each array element contains a new MyLinkedList 
+
+Accessing a List:
+
+When we have to store a word in one of these linked lists, we need to access a list 
+based on the first letter of the word( compute the correct offset). 
+We can use the the ACII value 97 of character 'a' as the base.
+
+if the word we are going to store is "algorithm" (assume everything is already converted to lower case),
+we can do the following to store the word "algorithm" in the list at index 0.
+list["algorithm".charAt(0) - 97].add("algorithm"), this gives us list[97-97].add("algorithm") 
+
+We can generalize this to any word by
+
+list[word.charAt(0) - 97].add(word).
+
+When we read a word from Oliver, we can again use the same technique to search it in a specific list.
+
+list[word.charAt(0) - 97].contains(word)
+
+
